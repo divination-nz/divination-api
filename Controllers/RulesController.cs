@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Divination.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("/divination/rules")]
 public class RulesController : ControllerBase
 {
     private static readonly Rule[] ExampleRules =
@@ -28,8 +28,14 @@ public class RulesController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet(Name = "GetRules")]
-    public IEnumerable<Rule> Get()
+    [HttpGet("{index}")]
+    public Rule GetRule(string index)
+    {
+        return ExampleRules[0];
+    }
+    
+    [HttpGet("search")]
+    public IEnumerable<Rule> SearchRules(string query)
     {
         return ExampleRules;
     }
