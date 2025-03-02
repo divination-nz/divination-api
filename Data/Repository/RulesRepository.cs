@@ -6,7 +6,9 @@ public class RulesRepository : IRulesRepository
 {
     public RulesRepository()
     {
-        Console.WriteLine("Initialising rules repository");
+        var rulesText = ResourceLoader.LoadRulesFromFile();
+        Console.WriteLine(rulesText);
+
         using var context = new ApiContext();
         var rules = new List<Rule>
         {
