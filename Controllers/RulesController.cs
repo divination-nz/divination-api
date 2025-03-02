@@ -1,3 +1,4 @@
+using Divination.Data.Repository;
 using Divination.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,36 +8,33 @@ namespace Divination.Controllers;
 [Route("/divination/rules")]
 public class RulesController : ControllerBase
 {
-    private static readonly Rule[] ExampleRules =
-    {
-        new()
-        {
-            Index = "100.1",
-            Description = "Blah"
-        },
-        new()
-        {
-            Index = "100.2",
-            Description = "Blah"
-        }
-    };
-
     private readonly ILogger<RulesController> _logger;
+    private readonly IRulesRepository _repository;
 
-    public RulesController(ILogger<RulesController> logger)
+    public RulesController(IRulesRepository repository, ILogger<RulesController> logger)
     {
+        _repository = repository;
         _logger = logger;
     }
 
     [HttpGet("{index}")]
-    public Rule GetRule(string index)
+    public ActionResult<Rule> GetRule(string index)
     {
-        return ExampleRules[0];
+        var rule = _repository.GetRules().Find(rule => rule.Id == index);
+
+        if (rule == null)
+        {
+            _logger.LogError($"Rule {index} not found");
+            return NotFound();
+        }
+
+        return Ok(rule);
     }
-    
+
     [HttpGet("search")]
     public IEnumerable<Rule> SearchRules(string query)
     {
-        return ExampleRules;
+        // TODO: Implement actual filtering
+        return _repository.GetRules();
     }
 }
