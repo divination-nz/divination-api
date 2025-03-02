@@ -25,7 +25,7 @@ public class RulesParser
             rules.Add(new Rule
             {
                 Id = CleanRuleId(ruleSplit[0]),
-                Description = ruleSplit[1]
+                Description = ruleSplit[1].TrimEnd('\r')
             });
         }
 
