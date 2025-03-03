@@ -4,14 +4,14 @@ namespace Divination.Data;
 
 public class ResourceLoader
 {
-    public static String LoadRulesFromFile()
+    public static string LoadRulesFromFile()
     {
-        Assembly assembly = Assembly.GetExecutingAssembly();
-        
-        using (Stream? stream = assembly.GetManifestResourceStream("Divination.Resources.rules.txt"))
+        var assembly = Assembly.GetExecutingAssembly();
+
+        using (var stream = assembly.GetManifestResourceStream("Divination.Resources.rules.txt"))
         {
             if (stream == null) throw new FileNotFoundException();
-            return (new StreamReader(stream).ReadToEnd());
+            return new StreamReader(stream).ReadToEnd();
         }
     }
 }

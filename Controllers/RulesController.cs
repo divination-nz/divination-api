@@ -39,17 +39,10 @@ public class RulesController : ControllerBase
         var matchedRules = new List<Rule>();
 
         foreach (var rule in rules)
-        {
             if (Regex.IsMatch(rule.Description.ToLower(), @$"\b{query.ToLower()}\b"))
-            {
                 matchedRules.Add(rule);
-            }
-        }
 
-        if (matchedRules.Count == 0)
-        {
-            return NotFound();
-        }
+        if (matchedRules.Count == 0) return NotFound();
 
         return Ok(matchedRules);
     }

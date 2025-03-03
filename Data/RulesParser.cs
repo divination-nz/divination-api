@@ -12,7 +12,7 @@ public class RulesParser
         var rulesTrimmed =
             rulesText.Substring(rulesText.IndexOf(creditsText, StringComparison.Ordinal) + creditsText.Length);
 
-        string[] rulesArray = rulesTrimmed.Split("\n", StringSplitOptions.RemoveEmptyEntries);
+        var rulesArray = rulesTrimmed.Split("\n", StringSplitOptions.RemoveEmptyEntries);
 
         foreach (var rule in rulesArray)
         {

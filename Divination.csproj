@@ -11,10 +11,10 @@
         <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.20"/>
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
     </ItemGroup>
-    
+
     <ItemGroup>
-      <None Remove="Resources\rules.txt" />
-      <EmbeddedResource Include="Resources\rules.txt" />
+        <None Remove="Resources\rules.txt"/>
+        <EmbeddedResource Include="Resources\rules.txt"/>
     </ItemGroup>
 
 </Project>
