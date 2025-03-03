@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using Divination.Data.Repository;
 using Divination.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -32,9 +33,24 @@ public class RulesController : ControllerBase
     }
 
     [HttpGet("search")]
-    public IEnumerable<Rule> SearchRules(string query)
+    public ActionResult<List<Rule>> SearchRules(string query)
     {
-        // TODO: Implement actual filtering
-        return _repository.GetRules();
+        var rules = _repository.GetRules();
+        var matchedRules = new List<Rule>();
+
+        foreach (var rule in rules)
+        {
+            if (Regex.IsMatch(rule.Description.ToLower(), @$"\b{query.ToLower()}\b"))
+            {
+                matchedRules.Add(rule);
+            }
+        }
+
+        if (matchedRules.Count == 0)
+        {
+            return NotFound();
+        }
+
+        return Ok(matchedRules);
     }
 }
