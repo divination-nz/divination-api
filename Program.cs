@@ -4,7 +4,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddSingleton<IRulesRepository, RulesRepository>();
+var rulesRepository = new  RulesRepository();
+builder.Services.AddSingleton<IRulesRepository>(rulesRepository);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
