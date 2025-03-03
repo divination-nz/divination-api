@@ -2,10 +2,12 @@ using System.Text.RegularExpressions;
 using Divination.Data.Repository;
 using Divination.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 
 namespace Divination.Controllers;
 
 [ApiController]
+[EnableRateLimiting("fixed")]
 [Route("/divination/rules")]
 public class RulesController : ControllerBase
 {
