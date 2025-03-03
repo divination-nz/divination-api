@@ -14,4 +14,4 @@ This service provides the following endpoints:
 - `/divination/rules/{index}` -> Find rule via index
 - `/divination/rules/search?query={}` -> Find rule via search query
 
-For more information, take a look at the [Swagger docs](https://api.divination.cardspy.nz/).
+For more information, take a look at the [Swagger docs](https://divination-api.cardspy.nz/).
