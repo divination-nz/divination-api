@@ -38,6 +38,7 @@ public class RulesParser
      * Allows:
      * - 101.1
      * - 101.1a
+     * - 702.155a
      * Disallows:
      * - 1.
      * - 101.
@@ -45,7 +46,7 @@ public class RulesParser
      */
     private static bool IsValidRuleId(string id)
     {
-        return Regex.IsMatch(id, "[0-9]{3}[.0-9a-z]{2,3}");
+        return Regex.IsMatch(id, "[0-9]{3}[.0-9a-z]{2,5}");
     }
 
     // Removes trailing dot for rule ids
