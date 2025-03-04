@@ -8,7 +8,7 @@ namespace Divination.Controllers;
 
 [ApiController]
 [EnableRateLimiting("fixed")]
-[Route("/divination/rules")]
+[Route("/rules")]
 public class RulesController : ControllerBase
 {
     private readonly ILogger<RulesController> _logger;
