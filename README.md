@@ -6,8 +6,6 @@
 > “Half of your studies will be learning the laws of magic. The other half will be bending them.”
 > —Naru Meha, master wizard
 
-<img src="divination.jpg" align="right" height="225" />
-
 A .NET Core API service that enables easy, quick searching of Magic: The Gathering's Comprehensive Rules.
 This service provides the following endpoints:
 
@@ -15,3 +13,8 @@ This service provides the following endpoints:
 - `/divination/rules/search?query={}` -> Find rule via search query
 
 For more information, take a look at the [Swagger docs](https://api.cardspy.nz/divination).
+
+<p align="center">
+  <img src="divination.jpg" height="250" />
+  <p align="center"><i>Divination by Matt Stewart</i></p>
+</p>
