@@ -24,7 +24,7 @@ public class RulesParser
 
             rules.Add(new Rule
             {
-                Id = CleanRuleId(ruleSplit[0]),
+                Id = ruleSplit[0],
                 Description = ruleSplit[1].TrimEnd('\r')
             });
         }
@@ -47,13 +47,5 @@ public class RulesParser
     private static bool IsValidRuleId(string id)
     {
         return Regex.IsMatch(id, "[0-9]{3}[.0-9a-z]{2,5}");
-    }
-
-    // Removes trailing dot for rule ids
-    private static string CleanRuleId(string id)
-    {
-        if (id.EndsWith(".")) return id.Substring(0, id.Length - 1);
-
-        return id;
     }
 }
