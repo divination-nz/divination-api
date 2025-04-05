@@ -14,7 +14,7 @@ builder.Services.AddSwaggerGen(options =>
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Title = "Divination API",
-        Version = "v1.1.0",
+        Version = "v1.1.1",
         Description = "This is a Web API for fetching rules text from Magic: The Gathering's comprehensive rules."
     });
 });

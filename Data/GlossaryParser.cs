@@ -16,7 +16,9 @@ public class GlossaryParser
             rulesText.Substring(rulesText.IndexOf(glossaryText, creditsPos, StringComparison.Ordinal) +
                                 glossaryText.Length);
 
-        var glossaryArray = glossaryTrimmed.Split("\n", StringSplitOptions.RemoveEmptyEntries);
+        // To enable the use of \r to determine the split between glossary entries
+        var glossaryWithNewlines = glossaryTrimmed.Replace("\r", "\r\n");
+        var glossaryArray = glossaryWithNewlines.Split("\n", StringSplitOptions.RemoveEmptyEntries);
         
         /*
          * Quick overview of how this works:
