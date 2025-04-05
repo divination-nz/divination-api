@@ -10,7 +10,9 @@ A .NET Core API service that enables easy, quick searching of Magic: The Gatheri
 This service provides the following endpoints:
 
 - `/divination/rules/{index}` -> Find rule via index
-- `/divination/rules/search?query={}` -> Find rule via search query
+- `/divination/rules/search?query={}` -> Find rule via text query
+- `/divination/glossary` -> Get all glossary entries
+- `/divination/glossary/search?query={}` -> Find an entry in the glossary via text query
 
 For more information, take a look at the [Swagger docs](https://api.cardspy.nz/divination).
 
