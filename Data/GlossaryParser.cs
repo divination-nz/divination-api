@@ -31,6 +31,12 @@ public class GlossaryParser
         var currentDescription = "";
         foreach (var glossary in glossaryArray)
         {
+            // Stop once the Credits section is reached (i.e. end of glossary)
+            if (glossary.Trim() == creditsText)
+            {
+                break;
+            }
+
             // Skip through blank lines
             if (glossary == "\r" && currentTerm.Length == 0)
             {
