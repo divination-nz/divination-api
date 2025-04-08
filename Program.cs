@@ -32,11 +32,11 @@ builder.Services.AddRateLimiter(rateLimiterOptions =>
 
 var app = builder.Build();
 
-app.UseSwagger(options => { options.RouteTemplate = "divination/{documentName}/swagger.json"; });
+app.UseSwagger(options => { options.RouteTemplate = "{documentName}/swagger.json"; });
 app.UseSwaggerUI(options =>
 {
-    options.SwaggerEndpoint("/divination/v1/swagger.json", "Divination API");
-    options.RoutePrefix = "divination";
+    options.SwaggerEndpoint("/v1/swagger.json", "Divination API");
+    options.RoutePrefix = String.Empty;
 });
 
 app.UseAuthorization();
