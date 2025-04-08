@@ -46,7 +46,7 @@ jobs:
     needs: publish
 
     env:
-      APP_NAME: 'cardspy.nz'
+      APP_NAME: 'divination.nz'
       POD_NAME: 'divination-api'
 
     steps:
