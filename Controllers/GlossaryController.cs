@@ -8,7 +8,7 @@ namespace Divination.Controllers;
 
 [ApiController]
 [EnableRateLimiting("fixed")]
-[Route("/divination/glossary")]
+[Route("/glossary")]
 public class GlossaryController : ControllerBase
 {
     private readonly ILogger<GlossaryController> _logger;
