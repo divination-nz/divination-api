@@ -17,15 +17,17 @@ public class RulesParser
         foreach (var rule in rulesArray)
         {
             if (rule.Contains("Glossary")) break;
-
+            
             var ruleSplit = rule.Split(" ", 2);
 
             if (!IsValidRuleId(ruleSplit[0])) continue;
 
+            var ruleDescription = ruleSplit[1].Split('\r')[0].TrimEnd('\r');
+
             rules.Add(new Rule
             {
                 Id = ruleSplit[0],
-                Description = ruleSplit[1].TrimEnd('\r')
+                Description = ruleDescription
             });
         }
 
