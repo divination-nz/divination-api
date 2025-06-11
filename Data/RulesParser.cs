@@ -12,7 +12,7 @@ public class RulesParser
         var rulesTrimmed =
             rulesText.Substring(rulesText.IndexOf(creditsText, StringComparison.Ordinal) + creditsText.Length);
 
-        var rulesArray = rulesTrimmed.Split("\r\r", StringSplitOptions.RemoveEmptyEntries);
+        var rulesArray = rulesTrimmed.Split("\r", StringSplitOptions.RemoveEmptyEntries);
 
         foreach (var rule in rulesArray)
         {
@@ -26,7 +26,7 @@ public class RulesParser
 
             rules.Add(new Rule
             {
-                Id = ruleSplit[0],
+                Id = ruleSplit[0].Trim(),
                 Description = ruleDescription
             });
         }
