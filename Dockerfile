@@ -6,7 +6,7 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-ADD https://media.wizards.com/2025/downloads/MagicCompRules%2020250606.txt ./Resources/rules.txt
+ADD https://media.wizards.com/2025/downloads/MagicCompRules%2020250725.txt ./Resources/rules.txt
 COPY ["Divination.csproj", "./"]
 RUN dotnet restore "Divination.csproj"
 COPY . .
